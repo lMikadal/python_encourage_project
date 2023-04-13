@@ -4,7 +4,7 @@ import datetime
 
 router = Router()
 
-# Data
+# tmp Data
 data = [
     EncourageSchema(encourage="จงเรียนรู้ที่จะให้กำลังใจตัวเองบ้าง ในวันที่เหนื่อย ท้อ"),
     EncourageSchema(encourage="ช่วงนี้อาจจะเหนื่อยหน่อยนะ สู้ๆ นะตัวเอง"),

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<title>Encourage</title>
+</head>
+<body>
+	<h1>Encourage</h1>
+	<div id="showData"></div>
+	<button id="random">random</button>
+	<script>
+		const button = document.getElementById("random")
+
+		button.addEventListener("click", (e) => {
+			const d = new Date()
+			let ms = d.getMilliseconds()
+			const url = 'http://127.0.0.1:8000/api/encourage/' + ms % 7;
+
+			axios(url, {
+				method: 'GET',
+				mode: 'no-cors',
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+					'Content-Type': 'application/json',
+				},
+				withCredentials: false,
+				credentials: 'same-origin'
+			}).then((response) => {
+				// handle success
+				const showData = document.getElementById("showData");
+
+				showData.innerHTML = response.data.encourage
+				// console.log(response.data);
+			})
+		});
+
+		// async function getapi(url) {
+		// 	const response = await fetch(url)
+
+		// 	console.log(response.status)
+		// 	// var data = await response.json();
+		// 	// console.log(data)
+		// }
+		// getapi("http://127.0.0.1:8000/api/encourage/1")
+
+		
+
+	</script>
+</body>
+</html>
